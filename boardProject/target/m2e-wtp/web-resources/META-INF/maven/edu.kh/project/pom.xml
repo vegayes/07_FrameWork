@@ -71,7 +71,46 @@
 		    <version>2.9.0</version>
 		</dependency>
 		
+		
+	
+		<!--  Spring-security 모듈 추가 (암호화 라이브러리) -->
+		<!--  core  -->
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-core</artifactId>
+		    <version>5.7.1</version>
+		</dependency>
+
 						
+		<!--  web  -->
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-web</artifactId>
+		    <version>5.7.1</version>
+		</dependency>
+
+		
+		<!-- config -->
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-config</artifactId>
+		    <version>5.7.1</version>
+		</dependency>
+
+				
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	
 		<!-- Spring 모듈 -->
 		<dependency>

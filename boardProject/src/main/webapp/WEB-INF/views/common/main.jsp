@@ -35,6 +35,15 @@
 			
 			<section class="content-1">
 				<h3>로그인된 회원 정보</h3>
+				<!-- ${sessionScope.member}  -->
+				
+				<h3>닉네임이 일치하는 회원의 전화번호 조회</h3>
+				
+				<input type = "text" id = "inputNickname">
+				<button id = "btn1">조회</button>
+				<h4 id = "result1"></h4>
+				<hr>
+				
 			</section>
 
 
@@ -55,7 +64,7 @@
 									<input type="password" name="inputPw" placeholder="비밀번호"> --%>
 									
 									<%-- 파라미터 3 Test --%>
-									<input type="text" name="memberEmail" placeholder="이메일">
+									<input type="text" name="memberEmail" placeholder="이메일" autocomplete="off" value = ${cookie.saveId.value} >
 									<input type="password" name="memberPw" placeholder="비밀번호">
 								</section>
 								
@@ -66,7 +75,17 @@
 							</fieldset>
 
 							<label> 
-								<input type="checkbox" name="saveId"> 아이디 저장
+							
+								<c:if test = "${not empty cookie.saveId.value}">
+									
+									<%-- 쿠키에 저장된 이메일이 있으면 변수 선언 : save--%>
+									<c:set var="save" value = "checked"/>
+									
+									
+								</c:if>
+								
+								
+								<input type="checkbox" name="saveId" ${save}> 아이디 저장
 							</label>
 
 							<!-- 회원가입 / Id / Pw 찾기 영역 -->
@@ -88,7 +107,7 @@
 
 							<div class="my-info">
 								<div>
-									<a href="#" id="nickname">${sessionScope.loginMember.memberNickName}</a> 
+									<a href="#" id="nickname">${sessionScope.loginMember.memberNickname}</a> 
 									<a href="/member/logout" id="logoutBtn">로그아웃</a>
 								</div>
 	
@@ -106,6 +125,10 @@
 
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
+
+	<!-- main.js 추가 -->
+
+	<script src="/resources/js/main.js"></script>
 
 
 </body>

@@ -28,6 +28,7 @@
 	<mappers>
 		<!--member-mapper.xml에서 mapper 만듦 -->
 		<mapper resource ="/mappers/member-mapper.xml"/>
+		<mapper resource ="/mappers/ajax-mapper.xml"/>
 		
 	</mappers>
 

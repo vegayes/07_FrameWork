@@ -35,22 +35,7 @@ public class MemberDAO {
 		
 		return sqlSession.selectOne("memberMapper.login", inputMember);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="ajaxMapper">
+   
+  	  <!-- parameterType : 전달받은 파라미터의 자료형 작성
+  	  		-> 선택사항으로, 작성 안하면 TypeHandler가 알아서 처리
+  	  -->
+  	  <!-- 
+  	  		resultType은 반환받은 값.. 
+  	  		자바    마이바티스
+  	  		int -> _int
+  	  		String -> string
+  	  		으로 받아옴. 
+  	   -->
+  	  <!-- 닉네임으로 전화번호 조회 -->
+	  <select id="selectMemberTel"  resultType="string">
+	  		SELECT MEMBER_TEL 
+			FROM "MEMBER"
+			WHERE MEMBER_DEL_FL = 'N'
+			AND MEMBER_NICKNAME = #{nickname}
+	  </select>
+  
+</mapper>

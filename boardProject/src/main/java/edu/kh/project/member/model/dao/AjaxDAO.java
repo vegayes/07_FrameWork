@@ -13,9 +13,29 @@ public class AjaxDAO {
 	private SqlSessionTemplate sqlSession;
 	
 
+	// 닉네임으로 전화번호 조회
 	public String selectMemberTel(String nickname) {
 		
 		return sqlSession.selectOne("ajaxMapper.selectMemberTel", nickname);
+	}
+
+
+	// 이메일로 회원정보 조회 
+	public Member selectMember(String email) {
+		return sqlSession.selectOne("ajaxMapper.selectMember", email);
+	}
+
+	// 이메일 중복 체크 
+	public String emailCheck(String emailCheck) {
+		
+		System.out.println("찾았어! dao");
+		return sqlSession.selectOne("ajaxMapper.emailCheck", emailCheck);
+	}
+
+
+	public String nicknameCheck(String nickname) {
+		System.out.println("찾았어! nickname dao");
+		return sqlSession.selectOne("ajaxMapper.nicknameCheck", nickname);
 	}
 
 

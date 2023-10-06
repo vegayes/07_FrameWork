@@ -89,9 +89,42 @@ btn1.addEventListener("click", () => {
 
 
 
+//-------------------------------------------------
+// fetch() API를 이용한 POST 방식 요청
 
+// 이메일을 입력받아 일치하는 회원의 정보를 조회 
+const inputEmail = document.getElementById("inputEmail");
+const btn2 = document.getElementById("btn2");
+const result2 = document.getElementById("result2");
 
+btn2.addEventListener("click",()=>{
+    
+    // POST 방식
+    fetch("/selectMember",{
+        method : "POST",
+        headers : {"Content-Type" : "application/json"},
+        // headers : {"Content-Type" : "application/x-www-form-urlencoded"},
+                // 요청 보내는 자원을 명시할 때 사용 
+                // -> js 객체를 json 형식으로 만들어서 파라미터로 전달.'
+                // json으로 변환해주는 역할은 아님, 변활할거라고 명시하는 역할
+        body : JSON.stringify({"email" : inputEmail.value})
+                                // JS 객체 (k:v)
+                                // java랑 js랑 호환 불가. (java <-> JSON <-> javascript)
+                // JSON.stringify가 변환해주는 역할
 
+                // JSON.stringify() : JS 객체 -> JSON
+                // JSON.parsa() : JSON -> JS 객체 
+
+                // JSON : Javascript 객체 문법으로, 구조화된 데이터를 표현하기 위한 문자 기반의 표준 포맷임.
+                //       서버에서 클라이언트로 데이터를 전송하여 표현하거나, 그 반대의 경우에 사용됨.
+    })    
+    .then(resp => resp.json()) // 응답 객체를 javascript 객체 형태로 파싱하는 것
+    .then(member => {
+            console.log(member);
+    })
+    .catch(err => console.log(err));  
+   
+})
 
 
 

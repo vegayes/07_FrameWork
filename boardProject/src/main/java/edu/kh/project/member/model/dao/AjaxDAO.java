@@ -34,7 +34,7 @@ public class AjaxDAO {
 
 
 	public String nicknameCheck(String nickname) {
-		System.out.println("찾았어! nickname dao");
+//		System.out.println("찾았어! nickname dao");
 		return sqlSession.selectOne("ajaxMapper.nicknameCheck", nickname);
 	}
 

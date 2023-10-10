@@ -32,7 +32,7 @@ public class DupCheckController {
 		
 		String result = service.emailCheck(emailCheck);
 		
-		System.out.println("result : " + result);
+		System.out.println("result 회원가입된 이메일 검사 : " + result);
 		
 		return result;
 	}

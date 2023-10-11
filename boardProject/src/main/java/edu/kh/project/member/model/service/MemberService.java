@@ -19,5 +19,7 @@ public interface MemberService  {
 	 * @return email,pw가 일치하는 정보 또는 null
 	 */
 	Member login(Member inputMember);
+
+	int signUp(Member inputMember);
 	
 }

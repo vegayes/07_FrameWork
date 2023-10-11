@@ -28,10 +28,14 @@ public class EmailDAO {
 
 
 
-	public int checkAuthKey(String checkAuthKey) {
-
+	public int checkAuthKey(Map<String, Object> paramMap) {
 		
-		return sqlSession.selectOne("emailMapper.checkAuthKey", checkAuthKey);
+		int result = sqlSession.selectOne("emailMapper.checkAuthKey", paramMap);
+		
+		System.out.println("DAO에서의 result :" + result);
+		
+		
+		return result; 
 	}
 	
 	

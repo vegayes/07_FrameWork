@@ -31,10 +31,21 @@ public class MemberDAO {
 		// -> namespace가 일치하는 Mapper에서 
 		// 		id가 일치하는 SQL 구문을 수행 후 결과를 1행 반환 
 		
-		
-		
 		return sqlSession.selectOne("memberMapper.login", inputMember);
 	}
+
+
+	public int singUp(Member inputMember) {
+		
+		return sqlSession.insert("memberMapper.signUp", inputMember);
+	}
+
+
+
+	
+	
+	
+	
 
 	
 	

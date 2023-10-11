@@ -124,19 +124,13 @@ public class EmailServiceImpl implements EmailService  {
 
 
 	@Override
-	public int checkAuthKey(String checkAuthKey) {
-
-		System.out.println("checkAuthKey 서비스 진입");
+	public int checkAuthKey(Map<String, Object> paramMap) {
+		int result = dao.checkAuthKey(paramMap);
 		
+		System.out.println("service에서의 reuslt 결과 : "+result);
 		
-		System.out.println(checkAuthKey);
-		
-		int result = dao.checkAuthKey(checkAuthKey);
-		
-		System.out.println(result);
-		
-		return result;
-	}
+		return result; 
+	}  
 	
 
 	

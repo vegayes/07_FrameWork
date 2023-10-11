@@ -92,7 +92,18 @@
 			AND MEMBER_EMAIL = #{memberEmail}
 	  </select>
   
-  
+	
+							<!-- mybatis config에 지정된 alias 이름 -->
+	  <insert id = "signUp"  parameterType="Member">
+	  	INSERT INTO "MEMBER"
+	  	VALUES(SEQ_MEMBER_NO.NEXTVAL, 
+	  			#{memberEmail}, 
+	  			#{memberPw},
+	  			#{memberNickname},
+	  			#{memberTel},
+				#{memberAddress},	  
+				NULL,DEFAULT, DEFAULT, DEFAULT)
+	  </insert>
   	
   
   

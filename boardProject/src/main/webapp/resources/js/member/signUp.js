@@ -365,7 +365,7 @@ memberTel.addEventListener("input", ()=>{
 
 // --------------------- 이메일 인증 ---------------------
 
-// 인증번호 발송 sendAuthKeyBtn
+
 // 인증번호 발송
 const sendAuthKeyBtn = document.getElementById("sendAuthKeyBtn");
 const authKeyMessage = document.getElementById("authKeyMessage");
@@ -377,6 +377,7 @@ let authSec = 59;
 let tempEmail;
 
 sendAuthKeyBtn.addEventListener("click", function(){
+
     authMin = 4;
     authSec = 59;
 
@@ -405,7 +406,7 @@ sendAuthKeyBtn.addEventListener("click", function(){
         alert("인증번호가 발송 되었습니다.");
 
         
-        authKeyMessage.innerText = "05:00"; // 처음 세팅된 값은 5:00
+        authKeyMessage.innerText = "05:00";
         authKeyMessage.classList.remove("confirm");
 
         authTimer = window.setInterval(()=>{
@@ -414,7 +415,7 @@ sendAuthKeyBtn.addEventListener("click", function(){
             
             // 남은 시간이 0분 0초인 경우
             if(authMin == 0 && authSec == 0){
-                checkObj.authKey = false; // 제한시간 지나면 key 무효화
+                checkObj.authKey = false;
                 clearInterval(authTimer);
                 return;
             }
@@ -449,9 +450,10 @@ checkAuthKeyBtn.addEventListener("click", function(){
         /* fetch API */
         const obj = {"inputKey":authKey.value, "email":tempEmail}
         const query = new URLSearchParams(obj).toString()
+        console.log(query);
         // inputKey=123456&email=user01
 
-        fetch("/sendEmail/checkAuthKey?checkAuthKey=" + query)
+        fetch("/sendEmail/checkAuthKey?" + query)
         .then(resp => resp.text())
         .then(result => {
             if(result > 0){
@@ -473,7 +475,6 @@ checkAuthKeyBtn.addEventListener("click", function(){
     }
 
 });
-
 
 
 
